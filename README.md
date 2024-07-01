@@ -77,8 +77,64 @@ WHERE id = 18;
 DELETE FROM tarefas WHERE id=1;
 
 -- DROP TABLE IF EXISTS tarefas;
+````
+
+## Configuração do Projeto
+
+1. Clone o repositório: `git clone https://github.com/seu-usuario/gerenciador-tarefas-swing-java.git`
+2. Importe o projeto em sua IDE Java preferida.
+3. Configure a conexão com o banco de dados no arquivo dao/ConnectionFactory.java:
+
+```
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionFactory {
+    private static final String URL = "jdbc:mysql://localhost:3306/gerenciador_tarefas";
+    private static final String USER = "seu_usuario";
+    private static final String PASSWORD = "sua_senha";
+
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+}
+````
+
+4. Execute a classe view/TarefaUI.java para iniciar a aplicação.
 
 
+## Uso 
+### Adicionar Tarefa
+1. Preencha a descrição da tarefa no campo "Descrição".
+2. Marque a caixa de seleção "Concluída" se a tarefa estiver concluída.
+3. Clique no botão "Adicionar" para adicionar a tarefa.
+
+### Listar Tarefas
+1. Clique no botão "Listar" para listar todas as tarefas no banco de dados.
+
+### Editar Tarefa
+1. Selecione uma tarefa na tabela.
+2. Clique no botão "Editar".
+3. Atualize a descrição e o estado de conclusão na janela de diálogo que aparece.
+4. Clique em "OK" para salvar as alterações.
+
+### Excluir Tarefa
+1. Clique no botão "Excluir".
+2. Digite o ID da tarefa que deseja excluir na janela de diálogo que aparece.
+3. Clique em "Excluir" para remover a tarefa.
+
+## Contribuição
+Sinta-se à vontade para contribuir com o projeto abrindo issues e pull requests no GitHub.
+
+## Licença
+Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+## Considerações Finais
+O projeto "Gerenciador de Tarefas" demonstra a aplicação de conceitos fundamentais de programação em Java, integração com banco de dados MySQL via JDBC e desenvolvimento de interface gráfica com Swing. Os testes unitários asseguram a funcionalidade correta das operações de banco de dados, proporcionando uma aplicação robusta e confiável para gerenciamento de tarefas.
 
 
 
